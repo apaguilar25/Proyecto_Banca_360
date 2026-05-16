@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pago Móvil · Banca 360</title>
+  <meta name="description" content="Realiza pagos móviles instantáneos a otros usuarios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/data.js"></script>
+  <script>requireAuth();</script>
+</head>
+<body data-page="mobilePayment">
+  <div class="app-shell">
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
+        <a class="brand" href="dashboard.html" aria-label="Ir al dashboard">
+          <div class="logo-dot"><i class="ph ph-bank"></i></div>
+          Banca 360
+        </a>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="toggleTheme" title="Cambiar tema"><i class="ph ph-moon"></i></button>
+        <a class="icon-btn" href="profile.html" title="Perfil"><i class="ph ph-user-circle"></i></a>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <nav class="sidebar" aria-label="Navegación principal">
+        <a class="nav-item" data-nav="dashboard"     href="dashboard.html"><i class="ph ph-squares-four"></i><span class="label">Dashboard</span></a>
+        <a class="nav-item" data-nav="transfer"      href="transfer.html"><i class="ph ph-paper-plane-tilt"></i><span class="label">Transferencias</span></a>
+        <a class="nav-item" data-nav="mobilePayment" href="mobilePayment.html"><i class="ph ph-device-mobile"></i><span class="label">Pago Móvil</span></a>
+        <a class="nav-item" data-nav="deposit"       href="deposit.html"><i class="ph ph-wallet"></i><span class="label">Depósitos</span></a>
+        <a class="nav-item" data-nav="history"       href="history.html"><i class="ph ph-clock-counter-clockwise"></i><span class="label">Historial</span></a>
+        <a class="nav-item" data-nav="profile"       href="profile.html"><i class="ph ph-gear"></i><span class="label">Configuración</span></a>
+      </nav>
+
+      <main class="main-content">
+        <a class="back-link" href="dashboard.html"><i class="ph ph-arrow-left"></i> Volver al dashboard</a>
+
+        <header>
+          <h1 class="page-title">Pago Móvil</h1>
+          <p class="text-muted">Envía dinero usando el teléfono y cédula del destinatario.</p>
+        </header>
+
+        <section class="card" style="max-width: 620px;">
+          <form id="mpForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="mpBanco">Banco Destino</label>
+              <select class="form-select" id="mpBanco" required>
+                <option value="">Selecciona un banco</option>
+                <option value="0102">0102 · Banco de Venezuela</option>
+                <option value="0105">0105 · Banco Mercantil</option>
+                <option value="0108">0108 · Banco Provincial</option>
+                <option value="0134">0134 · Banesco</option>
+                <option value="0172">0172 · Bancamiga</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mpTelNum">Número de Teléfono</label>
+              <div class="input-compound">
+                <select id="mpTelPrefix" aria-label="Operadora móvil">
+                  <option value="0412">0412</option>
+                  <option value="0414">0414</option>
+                  <option value="0416">0416</option>
+                  <option value="0424">0424</option>
+                  <option value="0426">0426</option>
+                </select>
+                <input id="mpTelNum" inputmode="numeric" placeholder="1234567" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mpCedNum">Cédula del titular</label>
+              <div class="input-compound">
+                <select id="mpCedPrefix" aria-label="Tipo de cédula">
+                  <option value="V">V-</option>
+                  <option value="E">E-</option>
+                </select>
+                <input id="mpCedNum" inputmode="numeric" placeholder="12345678" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mpMonto">Monto</label>
+              <input class="form-input" id="mpMonto" type="number" step="0.01" min="0.01"
+                     placeholder="0.00" required />
+            </div>
+
+            <p id="mpError" class="form-error" hidden></p>
+
+            <div class="flex-row mt-16">
+              <button type="submit" class="btn-primary"><i class="ph ph-device-mobile"></i> Revisar y pagar</button>
+              <a class="btn-secondary" href="dashboard.html">Cancelar</a>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/shell.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/mobilePayment.js"></script>
+</body>
+</html>

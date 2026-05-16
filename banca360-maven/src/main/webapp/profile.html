@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil · Banca 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/data.js"></script>
+  <script>requireAuth();</script>
+</head>
+<body data-page="profile">
+  <div class="app-shell">
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
+        <a class="brand" href="dashboard.html"><div class="logo-dot"><i class="ph ph-bank"></i></div>Banca 360</a>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="toggleTheme"><i class="ph ph-moon"></i></button>
+        <a class="icon-btn" href="profile.html"><i class="ph ph-user-circle"></i></a>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <nav class="sidebar" aria-label="Navegación principal">
+        <a class="nav-item" data-nav="dashboard"     href="dashboard.html"><i class="ph ph-squares-four"></i><span class="label">Dashboard</span></a>
+        <a class="nav-item" data-nav="transfer"      href="transfer.html"><i class="ph ph-paper-plane-tilt"></i><span class="label">Transferencias</span></a>
+        <a class="nav-item" data-nav="mobilePayment" href="mobilePayment.html"><i class="ph ph-device-mobile"></i><span class="label">Pago Móvil</span></a>
+        <a class="nav-item" data-nav="deposit"       href="deposit.html"><i class="ph ph-wallet"></i><span class="label">Depósitos</span></a>
+        <a class="nav-item" data-nav="history"       href="history.html"><i class="ph ph-clock-counter-clockwise"></i><span class="label">Historial</span></a>
+        <a class="nav-item" data-nav="profile"       href="profile.html"><i class="ph ph-gear"></i><span class="label">Configuración</span></a>
+      </nav>
+
+      <main class="main-content">
+        <a class="back-link" href="dashboard.html"><i class="ph ph-arrow-left"></i> Volver al dashboard</a>
+
+        <header>
+          <h1 class="page-title">Perfil y configuración</h1>
+          <p class="text-muted">Revisa tu información personal y administra tu seguridad.</p>
+        </header>
+
+        <section class="card" style="max-width: 640px;" aria-labelledby="idTitle">
+          <div class="profile-header">
+            <div class="avatar" id="avatarInitial">U</div>
+            <div>
+              <h2 id="idTitle"><span id="profileName" data-username>Usuario</span></h2>
+              <p id="profileEmail">—</p>
+            </div>
+          </div>
+          <div class="settings-list">
+            <div class="settings-row">
+              <div class="left"><i class="ph ph-identification-card"></i>Cédula</div>
+              <div class="right" id="profileCedula">—</div>
+            </div>
+            <div class="settings-row">
+              <div class="left"><i class="ph ph-envelope"></i>Correo</div>
+              <div class="right" id="profileEmailRow">—</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="max-width: 640px;" aria-labelledby="settingsTitle">
+          <h2 class="section-title" id="settingsTitle">Ajustes</h2>
+          <div class="settings-list">
+            <button class="settings-row" id="openChangePass" style="border:none; width:100%; cursor:pointer;">
+              <div class="left"><i class="ph ph-lock-key"></i>Cambiar contraseña</div>
+              <div class="right"><i class="ph ph-caret-right"></i></div>
+            </button>
+          </div>
+
+          <div id="changePassBox" hidden style="margin-top:16px;">
+            <form id="changePassForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="cpCurrent">Contraseña actual</label>
+                <div class="password-wrap">
+                  <input class="form-input" id="cpCurrent" type="password" inputmode="numeric" required />
+                  <button type="button" class="password-toggle" id="cpCurrentToggle" aria-label="Mostrar"><i class="ph ph-eye"></i></button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cpNew">Nueva contraseña (6 o más dígitos)</label>
+                <div class="password-wrap">
+                  <input class="form-input" id="cpNew" type="password" inputmode="numeric" required />
+                  <button type="button" class="password-toggle" id="cpNewToggle" aria-label="Mostrar"><i class="ph ph-eye"></i></button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cpNew2">Confirmar nueva contraseña</label>
+                <div class="password-wrap">
+                  <input class="form-input" id="cpNew2" type="password" inputmode="numeric" required />
+                  <button type="button" class="password-toggle" id="cpNew2Toggle" aria-label="Mostrar"><i class="ph ph-eye"></i></button>
+                </div>
+              </div>
+              <p id="cpMsg" class="form-error" hidden></p>
+              <button type="submit" class="btn-primary">Actualizar contraseña</button>
+            </form>
+          </div>
+        </section>
+
+        <section style="max-width: 640px;">
+          <button class="btn-destructive" id="logoutBtn" style="width:100%;">
+            <i class="ph ph-sign-out"></i> Cerrar sesión
+          </button>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/shell.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

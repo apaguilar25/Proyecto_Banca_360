@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preguntas de Seguridad · Banca 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/data.js"></script>
+  <script>applyTheme();</script>
+</head>
+<body data-page="security">
+  <main class="auth-screen">
+    <div class="auth-tools">
+      <button class="icon-btn" id="toggleTheme" title="Modo claro / oscuro"><i class="ph ph-moon"></i></button>
+    </div>
+
+    <section class="auth-card" aria-labelledby="secTitle">
+      <header class="brand-hero">
+        <div class="logo-dot"><i class="ph ph-shield-check"></i></div>
+        <strong>Banca 360</strong>
+      </header>
+
+      <h1 id="secTitle">Configura tu seguridad</h1>
+      <p class="subtitle">Selecciona y responde 2 preguntas. Las usaremos para verificar tu identidad cuando lo necesitemos.</p>
+
+      <form id="securityForm" novalidate>
+        <fieldset style="border:none;">
+          <legend class="form-label" style="margin-bottom:6px;">Pregunta 1</legend>
+          <div class="form-group">
+            <select class="form-select" id="q1" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="a1">Respuesta 1</label>
+            <input class="form-input" id="a1" required />
+          </div>
+        </fieldset>
+
+        <fieldset style="border:none; margin-top:10px;">
+          <legend class="form-label" style="margin-bottom:6px;">Pregunta 2</legend>
+          <div class="form-group">
+            <select class="form-select" id="q2" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="a2">Respuesta 2</label>
+            <input class="form-input" id="a2" required />
+          </div>
+        </fieldset>
+
+        <p id="secError" class="form-error" hidden></p>
+
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:6px;">
+          Guardar y continuar
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/security.js"></script>
+</body>
+</html>
