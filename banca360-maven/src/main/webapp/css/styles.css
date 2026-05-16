@@ -3,7 +3,7 @@
    ============================================================ */
 
 :root {
-  --bg-auth-image: url('assets/fondo-login-claro.png');
+  --bg-auth-image: url('../assets/fondo-login-claro.png');
   --bg:            #f2f2f7;
   --surface:       #ffffff;
   --surface-2:     #f9f9fb;
@@ -23,7 +23,7 @@
 }
 
 [data-theme="dark"] {
-  --bg-auth-image: url('assets/fondo-login-oscuro.png');
+  --bg-auth-image: url('../assets/fondo-login-oscuro.png');
   --bg:            #000000;
   --surface:       #1c1c1e;
   --surface-2:     #2c2c2e;
