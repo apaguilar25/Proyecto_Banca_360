@@ -5,7 +5,7 @@
 banca360/
 ├── pom.xml
 └── src/main/
-    ├── java/com/banca360/      (para futuros servlets/clases Java)
+    ├── java/com/banca360/      
     └── webapp/
         ├── assets/
         ├── css/
