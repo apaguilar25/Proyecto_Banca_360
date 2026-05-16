@@ -1,5 +1,17 @@
-# Proyecto Banca 360
+# Banca 360 - Estructura Maven
 
-Integrantes: Andrea Aguilar, Nabil Bedros, Miguel Veliz.
-
-El archivo generado queda en `target/banca360-web-1.0.0-SNAPSHOT.war`.
+## Estructura
+```
+banca360/
+├── pom.xml
+└── src/main/
+    ├── java/com/banca360/      
+    └── webapp/
+        ├── assets/
+        ├── css/
+        ├── js/
+        ├── WEB-INF/
+        ├── login.html
+        ├── dashboard.html
+        └── ... (resto de HTML)
+```

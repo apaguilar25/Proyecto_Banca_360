@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Cuenta · Banca 360</title>
+  <meta name="description" content="Crea tu cuenta de Banca 360 en pocos pasos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/data.js"></script>
+  <script>applyTheme();</script>
+</head>
+<body data-page="register">
+  <main class="auth-screen">
+    <div class="auth-tools">
+      <button class="icon-btn" id="toggleTheme" title="Modo claro / oscuro"><i class="ph ph-moon"></i></button>
+    </div>
+
+    <section class="auth-card" aria-labelledby="regTitle">
+      <header class="brand-hero">
+        <div class="logo-dot"><i class="ph ph-bank"></i></div>
+        <strong>Banca 360</strong>
+      </header>
+
+      <h1 id="regTitle">Crea tu cuenta</h1>
+      <p class="subtitle">Completa tus datos para registrarte de forma segura en Banca 360.</p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="regName">Nombre completo</label>
+          <input class="form-input" type="text" id="regName" autocomplete="name" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regCedulaNum">Cédula</label>
+          <div class="input-compound">
+            <select id="regCedulaPrefix" aria-label="Tipo de cédula">
+              <option value="V">V-</option>
+              <option value="E">E-</option>
+            </select>
+            <input id="regCedulaNum" inputmode="numeric" placeholder="12345678" autocomplete="off" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regEmail">Correo electrónico</label>
+          <input class="form-input" type="email" id="regEmail"
+                 placeholder="correo@ejemplo.com" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regPass">Contraseña (6 o más dígitos numéricos)</label>
+          <div class="password-wrap">
+            <input class="form-input" type="password" id="regPass"
+                   inputmode="numeric" autocomplete="new-password" required />
+            <button type="button" class="password-toggle" id="regPassToggle" aria-label="Mostrar contraseña">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="regPass2">Confirmar contraseña</label>
+          <div class="password-wrap">
+            <input class="form-input" type="password" id="regPass2"
+                   inputmode="numeric" autocomplete="new-password" required />
+            <button type="button" class="password-toggle" id="regPass2Toggle" aria-label="Mostrar contraseña">
+              <i class="ph ph-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <p id="regError" class="form-error" hidden></p>
+
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
+          Registrarme
+        </button>
+      </form>
+
+      <p class="form-footer">
+        ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+      </p>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

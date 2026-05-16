@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial · Banca 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/data.js"></script>
+  <script>requireAuth();</script>
+</head>
+<body data-page="history">
+  <div class="app-shell">
+    <header class="header">
+      <div class="header-left">
+        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
+        <a class="brand" href="dashboard.html"><div class="logo-dot"><i class="ph ph-bank"></i></div>Banca 360</a>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="toggleTheme"><i class="ph ph-moon"></i></button>
+        <a class="icon-btn" href="profile.html"><i class="ph ph-user-circle"></i></a>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <nav class="sidebar" aria-label="Navegación principal">
+        <a class="nav-item" data-nav="dashboard"     href="dashboard.html"><i class="ph ph-squares-four"></i><span class="label">Dashboard</span></a>
+        <a class="nav-item" data-nav="transfer"      href="transfer.html"><i class="ph ph-paper-plane-tilt"></i><span class="label">Transferencias</span></a>
+        <a class="nav-item" data-nav="mobilePayment" href="mobilePayment.html"><i class="ph ph-device-mobile"></i><span class="label">Pago Móvil</span></a>
+        <a class="nav-item" data-nav="deposit"       href="deposit.html"><i class="ph ph-wallet"></i><span class="label">Depósitos</span></a>
+        <a class="nav-item" data-nav="history"       href="history.html"><i class="ph ph-clock-counter-clockwise"></i><span class="label">Historial</span></a>
+        <a class="nav-item" data-nav="profile"       href="profile.html"><i class="ph ph-gear"></i><span class="label">Configuración</span></a>
+      </nav>
+
+      <main class="main-content">
+        <a class="back-link" href="dashboard.html"><i class="ph ph-arrow-left"></i> Volver al dashboard</a>
+
+        <header>
+          <h1 class="page-title">Historial de movimientos</h1>
+          <p class="text-muted">Combina los filtros de dirección y tipo para encontrar lo que buscas.</p>
+        </header>
+
+        <section class="history-filters" aria-label="Filtros">
+          <div class="filter-block">
+            <label>Dirección</label>
+            <div class="segmented" role="tablist" aria-label="Dirección">
+              <button role="tab" data-dir-filter="all"      class="active">Todos</button>
+              <button role="tab" data-dir-filter="received">Solo entradas</button>
+              <button role="tab" data-dir-filter="sent">Solo salidas</button>
+            </div>
+          </div>
+          <div class="filter-block">
+            <label for="typeFilter">Tipo</label>
+            <select class="form-select" id="typeFilter">
+              <option value="all">Todos los tipos</option>
+              <option value="transfer">Transferencias</option>
+              <option value="mobilePayment">Pago Móvil</option>
+              <option value="both">Transferencias y Pago Móvil</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="ios-list" aria-label="Movimientos">
+          <div id="historyList">
+            <p style="padding:20px; color:var(--text-secondary);">Cargando…</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/shell.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>
