@@ -1,0 +1,50 @@
+# =========================================================================
+# MAVEN - Archivos de compilación y empaquetado
+# =========================================================================
+target/
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# =========================================================================
+# INTELLIJ IDEA - Configuraciones del Entorno de Desarrollo (IDE)
+# =========================================================================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+gen/
+.attach_pid*
+
+# =========================================================================
+# SISTEMA OPERATIVO / ARCHIVOS TEMPORALES
+# =========================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+*.ini
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =========================================================================
+# LOGS Y CACHÉ
+# =========================================================================
+*.log
+.crash_counter
