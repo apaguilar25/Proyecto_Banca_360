@@ -58,7 +58,7 @@ button { font-family: inherit; cursor: pointer; }
 .main-content {
   flex: 1; padding: 28px clamp(16px, 4vw, 40px);
   display: flex; flex-direction: column; gap: 20px;
-  max-width: 1200px; width: 100%; min-width: 0;
+  max-width: 800px; width: 100%; min-width: 0; margin: 0 auto;
 }
 
 /* ---------- HEADER ---------- */
@@ -157,6 +157,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 20px;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
+  width: 100%;
 }
 .card + .card { margin-top: 16px; }
 
@@ -169,6 +170,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; flex-direction: column; gap: 10px;
   box-shadow: var(--shadow-md);
   min-width: 0;
+  
 }
 .balance-card .label { font-size: 13px; opacity: .85; }
 .balance-card .amount-row {

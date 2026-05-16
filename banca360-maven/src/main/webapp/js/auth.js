@@ -87,7 +87,7 @@ function wireLogin() {
       }
       saveState();
       window.location.href = 'dashboard.html';
-    }, 1400);
+    }, 2000);  // Dura 2 segundos para simular proceso de autenticación
   });
 
   function showErr(msg) {

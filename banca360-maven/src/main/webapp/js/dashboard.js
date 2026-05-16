@@ -29,7 +29,7 @@ function paintBalanceMasked() {
   document.querySelectorAll('#latestList .txn-amount').forEach(el => {
     const sign = el.dataset.sign || '';
     const amount = el.dataset.amount || '';
-    el.textContent = _showBalance ? `${sign}${formatMoney(amount)}` : `${sign}• • •`;
+    el.textContent = _showBalance ? `${sign}${formatMoney(amount)}` : `${sign} • • •`;
   });
 }
 
