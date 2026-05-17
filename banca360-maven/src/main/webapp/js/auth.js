@@ -2,6 +2,7 @@
    auth.js — Login y Registro
    ============================================================ */
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.body.dataset.page;
   // Botón de tema en pantallas auth (login/register/security/sessionEnded)
@@ -13,16 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ---------- LOGIN ---------- */
 function wireLogin() {
+
+  // Elementos principales del formulario
+  // Lo guarda para manejarlo en vivo
   const form = document.getElementById('loginForm');
   const err  = document.getElementById('loginError');
   const btn  = document.getElementById('loginBtn');
 
   // Tabs Correo / Cédula
-  const tabEmail  = document.getElementById('tabEmail');
+  const tabEmail  = document.getElementById('tabEmail'); // Tab selección
   const tabCedula = document.getElementById('tabCedula');
-  const blockEmail  = document.getElementById('blockEmail');
+  const blockEmail  = document.getElementById('blockEmail'); //Bloques de input
   const blockCedula = document.getElementById('blockCedula');
 
+  // Predeterminado a correo 
   let mode = 'email';
   const setMode = (m) => {
     mode = m;
@@ -31,6 +36,7 @@ function wireLogin() {
     blockEmail.hidden  = m !== 'email';
     blockCedula.hidden = m !== 'cedula';
   };
+  // Listeners de tabs
   tabEmail.addEventListener('click', () => setMode('email'));
   tabCedula.addEventListener('click', () => setMode('cedula'));
 
@@ -46,6 +52,7 @@ function wireLogin() {
     document.getElementById('loginPassword')
   );
 
+  // Validaciones al enviar el formulario
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     showErr(''); err.hidden = true;
@@ -66,11 +73,11 @@ function wireLogin() {
     const pass = document.getElementById('loginPassword').value;
     if (!/^\d{6,}$/.test(pass)) return showErr('La contraseña debe ser numérica de 6 o más dígitos.');
 
-    btn.disabled = true;
-    btn.innerHTML = '<span class="ios-spinner"></span>';
+    // SPINNER: Simulación autenticación
+    btn.disabled = true; // Deshabilitar botón para evitar múltiples clicks
+    btn.innerHTML = '<span class="ios-spinner"></span>'; // Cambiar texto a spinner
 
-    setTimeout(() => {
-      if (!AppState.user) {
+    setTimeout(() => { // Acá crea el usuario esperando que llegue como null
         // Crea usuario con la información real ingresada
         const isEmail = mode === 'email';
         AppState.user = {
@@ -79,12 +86,6 @@ function wireLogin() {
           email:  isEmail ? identifier : '—',
           password: pass,
         };
-      } else {
-        // Si el usuario existe, actualizamos lo que coincide
-        if (mode === 'email') AppState.user.email = identifier;
-        else AppState.user.cedula = identifier;
-        AppState.user.password = pass;
-      }
       saveState();
       window.location.href = 'dashboard.html';
     }, 2000);  // Dura 2 segundos para simular proceso de autenticación
@@ -95,9 +96,9 @@ function wireLogin() {
     // Re-disparar animación
     err.hidden = false;
     err.textContent = msg;
-    err.style.animation = 'none';
-    void err.offsetWidth;
-    err.style.animation = '';
+    err.style.animation = 'none'; // Desactiva la animación que haya en el momento
+    void err.offsetWidth; // Forzar reflow para reiniciar la animación
+    err.style.animation = ''; // Ejecuta la animación desde el inicio
   }
 }
 
@@ -127,13 +128,6 @@ function wireRegister() {
     document.getElementById('regPass2')
   );
 
-  // Contraseña: solo dígitos
-  const p1 = document.getElementById('regPass');
-  const p2 = document.getElementById('regPass2');
-  [p1, p2].forEach(el => el.addEventListener('input', () => {
-    el.value = el.value.replace(/\D/g, '');
-  }));
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     show('');
@@ -142,8 +136,8 @@ function wireRegister() {
     const prefix = document.getElementById('regCedulaPrefix').value;
     const cednum = cedNums.value;
     const email  = document.getElementById('regEmail').value.trim();
-    const v1     = p1.value;
-    const v2     = p2.value;
+    const v1     = document.getElementById('regPass').value;
+    const v2     = document.getElementById('regPass2').value;
 
     if (!name)                                return show('Ingresa tu nombre completo.');
     if (!/^\d{6,10}$/.test(cednum))           return show('La cédula debe tener entre 6 y 10 dígitos numéricos.');

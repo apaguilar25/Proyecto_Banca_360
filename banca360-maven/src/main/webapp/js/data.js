@@ -2,6 +2,7 @@
    data.js — Estado global persistido en localStorage
    ============================================================ */
 
+  // "Llave" donde guarda los datos en memoria del navegador. 
 const STORAGE_KEY = 'banca360_state';
 
 const DEFAULT_STATE = {
@@ -18,6 +19,7 @@ const DEFAULT_STATE = {
   securityQuestions: null,
 };
 
+// Carga los estados actuales
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -34,23 +36,21 @@ function loadState() {
     return { ...DEFAULT_STATE };
   }
 }
+
+// Para inferir categoría de la transacción.
 function inferCategory(t) {
   const d = (t.desc || '').toLowerCase();
   if (d.includes('pago móvil') || d.includes('pago movil')) return 'mobilePayment';
   if (d.includes('depósito') || d.includes('deposito'))     return 'deposit';
   return 'transfer';
 }
+
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
 }
 
+// El estado de la App carga estado para estar siempre actualizada
 const AppState = loadState();
-
-if (!localStorage.getItem(STORAGE_KEY) &&
-    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  AppState.theme = 'dark';
-  saveState();
-}
 
 function formatMoney(n) {
   return '$' + Number(n).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -69,13 +69,18 @@ function applyTheme() {
   document.documentElement.setAttribute('data-theme', AppState.theme);
 }
 
+<<<<<<< HEAD
 // Obliga a que el user este autenticado. Sino, lo manda siempre al login
+=======
+// Si no hay user autenticado, no puede forzar entrada a otras pantallas
+>>>>>>> 7993a81 (Comments and minor changes.)
 function requireAuth() {
   if (!AppState.user) {
     window.location.href = 'login.html';
   }
 }
 
+// Muestra saldos directamente en donde se requieran
 function paintBalance() {
   document.querySelectorAll('[data-balance]').forEach(el => {
     el.textContent = formatMoney(AppState.balance);

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
 
-  <meta
+<<<<<<< HEAD
+  
+<meta
           name="viewport"
           content="width=device-width,
           initial-scale=1.0" />
@@ -20,6 +22,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
+=======
+  <!-- Para asegurar que la página se adapte bien a dispositivos móviles y evitar problemas de zoom. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Iniciar Sesión · Banca 360</title>
+  <link rel="icon" type="image/png" href="assets/bank.png">
+  <meta name="description" content="Accede de forma segura a tu cuenta de Banca 360." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Conexion a apis para fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Enlaza CDN de Phosphor Icons para usar sus iconos en la interfaz. -->
+>>>>>>> 7993a81 (Comments and minor changes.)
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <link rel="stylesheet" href="css/styles.css" />
 
@@ -27,7 +43,12 @@
   <script>applyTheme();</script>      <!-- Se Carga el tema -->
 </head>
 
+<<<<<<< HEAD
 <body data-page="login">        <!-- Identificador para CCS/JS para saber en donde estan parados -->
+=======
+<!-- data-page="login" se usa para aplicar estilos específicos a esta página desde CSS. -->
+<body data-page="login">
+>>>>>>> 7993a81 (Comments and minor changes.)
   <main class="auth-screen">
 
     <div class="auth-tools">
@@ -53,6 +74,7 @@
       <p
               class="subtitle">Inicia sesión en tu cuenta para continuar gestionando tu dinero.</p>
 
+<<<<<<< HEAD
       <!-- tabs Para cambiar entre correo/cedula al logear -->
       <!-- tablist Barra de pestañas interactivas -->
       <div
@@ -89,6 +111,21 @@
                     id="loginEmail"
                     placeholder="correo@ejemplo.com"
                     autocomplete="email" />
+=======
+      <!-- Ingresa predeterminado a correo en el tab  -->
+      <div class="tabs" role="tablist" aria-label="Método de acceso">
+        <button type="button" id="tabEmail"  class="active" role="tab" aria-selected="true">Correo</button>
+        <button type="button" id="tabCedula" role="tab" aria-selected="false">Cédula</button>
+      </div>
+
+      <!-- No hace validaciones predet, sino las que se están añadiendo al js -->
+      <form id="loginForm" novalidate>
+        <div id="blockEmail">
+          <div class="form-group">
+            <label class="form-label" for="loginEmail">Correo electrónico</label>
+            <input class="form-input" type="email" id="loginEmail"
+                   placeholder="correo@ejemplo.com" />
+>>>>>>> 7993a81 (Comments and minor changes.)
           </div>
         </div>
 
@@ -109,11 +146,15 @@
                 <option
                         value="E">E-</option>
               </select>
+<<<<<<< HEAD
               <input
                       id="loginCedulaNum"
                       inputmode="numeric"
                       placeholder="12345678"
                       autocomplete="off" />
+=======
+              <input id="loginCedulaNum" inputmode="numeric" placeholder="12345678" />
+>>>>>>> 7993a81 (Comments and minor changes.)
             </div>
           </div>
         </div>
@@ -145,6 +186,7 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <p
                 id="loginError"
                 class="form-error"
@@ -155,6 +197,12 @@
                 class="btn-primary"
                 id="loginBtn"
                 style="width:100%; margin-top:8px;">
+=======
+        <!-- Oculto como predeterminado, aparece si hay error en credenciales -->
+        <p id="loginError" class="form-error" hidden></p>
+        
+        <button type="submit" class="btn-primary" id="loginBtn">
+>>>>>>> 7993a81 (Comments and minor changes.)
           Ingresar
         </button>
       </form>

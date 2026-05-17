@@ -288,6 +288,10 @@ button { font-family: inherit; cursor: pointer; }
 .btn-primary:active, .btn-secondary:active, .btn-destructive:active { transform: scale(.97); }
 button:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
 
+#loginBtn {
+  width: 100%; margin-top: 8px;
+}
+
 .ios-spinner {
   width: 18px; height: 18px;
   border: 2px solid rgba(255,255,255,.35);
