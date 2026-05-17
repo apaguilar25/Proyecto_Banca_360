@@ -69,11 +69,7 @@ function applyTheme() {
   document.documentElement.setAttribute('data-theme', AppState.theme);
 }
 
-<<<<<<< HEAD
-// Obliga a que el user este autenticado. Sino, lo manda siempre al login
-=======
-// Si no hay user autenticado, no puede forzar entrada a otras pantallas
->>>>>>> 7993a81 (Comments and minor changes.)
+// Si no hay user autenticado, no puede forzar entrada a otras pantallas, lo redirige al login 
 function requireAuth() {
   if (!AppState.user) {
     window.location.href = 'login.html';

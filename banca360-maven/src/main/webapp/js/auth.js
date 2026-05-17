@@ -129,7 +129,9 @@ function wireRegister() {
   );
 
   form.addEventListener('submit', (e) => {
+    // Evita que el formulario se envíe y recargue la página
     e.preventDefault();
+    // Elimina cualquier mensaje de error previo
     show('');
 
     const name   = document.getElementById('regName').value.trim();
@@ -152,7 +154,10 @@ function wireRegister() {
 
   function show(msg) {
     if (!msg) { err.hidden = true; err.textContent = ''; return; }
-    err.hidden = false; err.textContent = msg;
-    err.style.animation = 'none'; void err.offsetWidth; err.style.animation = '';
+    err.hidden = false; 
+    err.textContent = msg;
+    err.style.animation = 'none'; 
+    void err.offsetWidth; 
+    err.style.animation = '';
   }
 }

@@ -24,15 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   wirePasswordToggle(document.getElementById('cpNewToggle'),     document.getElementById('cpNew'));
   wirePasswordToggle(document.getElementById('cpNew2Toggle'),    document.getElementById('cpNew2'));
 
-<<<<<<< HEAD
-  // Restringir a dígitos
-  ['cpCurrent','cpNew','cpNew2'].forEach(id => {
-    const el = document.getElementById(id);
-    // el.addEventListener('input', () => { el.value = el.value.replace(/\D/g,''); });
-  });
-
-=======
->>>>>>> 7993a81 (Comments and minor changes.)
   document.getElementById('changePassForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const cur = document.getElementById('cpCurrent').value;
@@ -65,17 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
       confirmText: 'Cerrar sesión',
       destructive: true,
       onConfirm: () => {
-<<<<<<< HEAD
         // Borra todo el estado persistido para evitar que datos del usuario
         // anterior queden disponibles después de cerrar sesión.
-        try {
-          localStorage.removeItem('banca360_state');
-        } catch (e) { /* ignorar si no se puede acceder */ }
-        try { sessionStorage.clear(); } catch (e) { }
-
-        // También limpia la variable en memoria por si queda referenciada
-        try { AppState.user = null; } catch (e) { }
-=======
         try {
           localStorage.removeItem('banca360_state');
         } catch (e) { / ignorar / }
@@ -83,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // También limpia la variable en memoria por si queda referenciada
         try { AppState.user = null; } catch (e) { / ignorar / }
->>>>>>> 7993a81 (Comments and minor changes.)
 
         // Redirige a la pantalla de sesión finalizada
         window.location.href = 'sessionEnded.html';

@@ -1,33 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  
   <meta charset="UTF-8" />
 
-<<<<<<< HEAD
-  
-<meta
-          name="viewport"
-          content="width=device-width,
-          initial-scale=1.0" />
-  <title>Iniciar Sesión · Banca 360</title> <!--  Titulo Inicio de sesion -->
-  <link
-          rel="icon"
-          type="image/png"
-          href="assets/bank.png"> <!--  Imagen del banco de la parte superior del navegador -->
-  <meta
-          name="description"
-          content="Accede de forma segura a tu cuenta de Banca 360." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Conexion a apis para fuentes -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-=======
   <!-- Para asegurar que la página se adapte bien a dispositivos móviles y evitar problemas de zoom. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Iniciar Sesión · Banca 360</title>
-  <link rel="icon" type="image/png" href="assets/bank.png">
+  <link rel="icon" type="image/png" href="assets/bank.png"> <!-- Icono del banco que aparece en la pestaña del navegador -->
   <meta name="description" content="Accede de forma segura a tu cuenta de Banca 360." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Conexion a apis para fuentes -->
@@ -35,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Enlaza CDN de Phosphor Icons para usar sus iconos en la interfaz. -->
->>>>>>> 7993a81 (Comments and minor changes.)
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <link rel="stylesheet" href="css/styles.css" />
 
@@ -43,167 +23,78 @@
   <script>applyTheme();</script>      <!-- Se Carga el tema -->
 </head>
 
-<<<<<<< HEAD
-<body data-page="login">        <!-- Identificador para CCS/JS para saber en donde estan parados -->
-=======
-<!-- data-page="login" se usa para aplicar estilos específicos a esta página desde CSS. -->
+<!-- Identificador para CCS/JS para saber en qué página está el usuario -->
 <body data-page="login">
->>>>>>> 7993a81 (Comments and minor changes.)
   <main class="auth-screen">
-
     <div class="auth-tools">
       <button
-              class="icon-btn"
-              id="toggleTheme"
-              title="Modo claro / oscuro"><i class="ph ph-moon"></i></button>
+        class="icon-btn"
+        id="toggleTheme"
+        title="Modo claro / oscuro">
+        <i class="ph ph-moon"> </i>
+      </button>
     </div>
 
-    <section
-            class="auth-card"
-            aria-labelledby="loginTitle">
+    <section class="auth-card" aria-labelledby="loginTitle">
       <header
-              class="brand-hero">
-        <div
-                class="logo-dot"><i
-                class="ph ph-bank"></i></div>
+          class="brand-hero">
+        <div class="logo-dot">
+          <i class="ph ph-bank"> </i>
+        </div>
         <strong>Banca 360</strong>
       </header>
 
-      <h1
-              id="loginTitle">Bienvenido de vuelta</h1>
-      <p
-              class="subtitle">Inicia sesión en tu cuenta para continuar gestionando tu dinero.</p>
+      <h1 id="loginTitle">Bienvenido de vuelta</h1>
+      <p class="subtitle">Inicia sesión en tu cuenta para continuar gestionando tu dinero.</p>
 
-<<<<<<< HEAD
       <!-- tabs Para cambiar entre correo/cedula al logear -->
-      <!-- tablist Barra de pestañas interactivas -->
-      <div
-              class="tabs"
-              role="tablist"
-              aria-label="Método de acceso">
-        <button
-                type="button"
-                id="tabEmail"
-                class="active"
-                role="tab"
-                aria-selected="true">Correo</button>
-        <button
-                type="button"
-                id="tabCedula"
-                role="tab"
-                aria-selected="false">Cédula</button>
-      </div>
-
-
-
-      <form
-              id="loginForm" novalidate>
-        <div
-                id="blockEmail">
-          <div
-                  class="form-group">
-            <label
-                    class="form-label"
-                    for="loginEmail">Correo electrónico</label>
-            <input
-                    class="form-input"
-                    type="email"
-                    id="loginEmail"
-                    placeholder="correo@ejemplo.com"
-                    autocomplete="email" />
-=======
-      <!-- Ingresa predeterminado a correo en el tab  -->
+      <!-- tablist Barra de pestañas interactivas, el predet al ingresar es correo -->
       <div class="tabs" role="tablist" aria-label="Método de acceso">
-        <button type="button" id="tabEmail"  class="active" role="tab" aria-selected="true">Correo</button>
-        <button type="button" id="tabCedula" role="tab" aria-selected="false">Cédula</button>
+        <button type="button" id="tabEmail"  class="active" role="tab" aria-selected="true">Correo </button>
+        <button type="button" id="tabCedula" role="tab" aria-selected="false">Cédula </button>
       </div>
 
       <!-- No hace validaciones predet, sino las que se están añadiendo al js -->
       <form id="loginForm" novalidate>
         <div id="blockEmail">
           <div class="form-group">
-            <label class="form-label" for="loginEmail">Correo electrónico</label>
-            <input class="form-input" type="email" id="loginEmail"
-                   placeholder="correo@ejemplo.com" />
->>>>>>> 7993a81 (Comments and minor changes.)
+            <label class="form-label" for="loginEmail">Correo electrónico </label>
+            <input class="form-input" type="email" id="loginEmail" placeholder="correo@ejemplo.com" />
           </div>
         </div>
 
-        <div
-                id="blockCedula" hidden>
-          <div
-                  class="form-group">
-            <label
-                    class="form-label"
-                    for="loginCedulaNum">Cédula</label>
+        <div id="blockCedula" hidden>
+          <div class="form-group">
+            <label class="form-label" for="loginCedulaNum">Cédula </label>
             <div
-                    class="input-compound">
+              class="input-compound">
               <select
-                      id="loginCedulaPrefix"
-                      aria-label="Tipo de cédula">
-                <option
-                        value="V">V-</option>
-                <option
-                        value="E">E-</option>
+                id="loginCedulaPrefix"
+                aria-label="Tipo de cédula">
+                <option value="V">V-</option>
+                <option value="E">E-</option>
               </select>
-<<<<<<< HEAD
-              <input
-                      id="loginCedulaNum"
-                      inputmode="numeric"
-                      placeholder="12345678"
-                      autocomplete="off" />
-=======
               <input id="loginCedulaNum" inputmode="numeric" placeholder="12345678" />
->>>>>>> 7993a81 (Comments and minor changes.)
             </div>
           </div>
         </div>
 
-        <div
-                class="form-group">
-          <label
-                  class="form-label"
-                  for="loginPassword">Contraseña (6 o más dígitos)</label>
-          <div
-                  class="password-wrap">
-            <input
-                    class="form-input"
-                    type="password"
-                    id="loginPassword"
-                    inputmode="numeric"
-                    placeholder="••••••"
-                    autocomplete="current-password"
-                    required />
-            <button
-                    type="button"
-                    class="password-toggle"
-                    id="loginPassToggle"
-                    aria-label="Mostrar contraseña">
-
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Contraseña (6 o más dígitos)</label>
+          <div class="password-wrap">
+            <input class="form-input" type="password" id="loginPassword" inputmode="numeric"
+                   placeholder="••••••" autocomplete="current-password" required />
+            <button type="button" class="password-toggle" id="loginPassToggle" aria-label="Mostrar contraseña">
               <i class="ph ph-eye"></i>
-
             </button>
           </div>
         </div>
 
-<<<<<<< HEAD
-        <p
-                id="loginError"
-                class="form-error"
-                hidden></p>
-
-        <button
-                type="submit"
-                class="btn-primary"
-                id="loginBtn"
-                style="width:100%; margin-top:8px;">
-=======
         <!-- Oculto como predeterminado, aparece si hay error en credenciales -->
         <p id="loginError" class="form-error" hidden></p>
         
         <button type="submit" class="btn-primary" id="loginBtn">
->>>>>>> 7993a81 (Comments and minor changes.)
-          Ingresar
+          Ingresar     <!-- texto del button -->
         </button>
       </form>
 
