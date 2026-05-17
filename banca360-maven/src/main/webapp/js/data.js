@@ -56,6 +56,7 @@ function formatMoney(n) {
   return '$' + Number(n).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+//
 function addTransaction(tx) {
   tx.id = 'TXN-' + String(AppState.transactions.length + 1).padStart(3, '0');
   tx.date = new Date().toISOString().slice(0, 16).replace('T', ' ');
@@ -68,6 +69,7 @@ function applyTheme() {
   document.documentElement.setAttribute('data-theme', AppState.theme);
 }
 
+// Obliga a que el user este autenticado. Sino, lo manda siempre al login
 function requireAuth() {
   if (!AppState.user) {
     window.location.href = 'login.html';
@@ -98,10 +100,10 @@ function wireThemeButton(btn) {
 
 /* Botón para mostrar/ocultar contraseña */
 function wirePasswordToggle(toggleBtn, inputEl) {
-  if (!toggleBtn || !inputEl) return;
+  // if (!toggleBtn || !inputEl) return;
   toggleBtn.addEventListener('click', () => {
-    const showing = inputEl.type === 'text';
-    inputEl.type = showing ? 'password' : 'text';
+    const showing = inputEl.type === 'text'; // Si es tipo text, se ve en pantalla
+    inputEl.type = showing ? 'password' : 'text'; // Boton: Si se ve, cambiar a password para ocultar. Si no se ve, cambiar a text para mostrar
     const i = toggleBtn.querySelector('i');
     if (i) i.className = 'ph ' + (showing ? 'ph-eye' : 'ph-eye-slash');
   });

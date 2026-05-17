@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Restringir a dígitos
   ['cpCurrent','cpNew','cpNew2'].forEach(id => {
     const el = document.getElementById(id);
-    el.addEventListener('input', () => { el.value = el.value.replace(/\D/g,''); });
+    // el.addEventListener('input', () => { el.value = el.value.replace(/\D/g,''); });
   });
 
   document.getElementById('changePassForm').addEventListener('submit', (e) => {
@@ -62,8 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
       confirmText: 'Cerrar sesión',
       destructive: true,
       onConfirm: () => {
-        AppState.user = null;
-        saveState();
+        // Borra todo el estado persistido para evitar que datos del usuario
+        // anterior queden disponibles después de cerrar sesión.
+        try {
+          localStorage.removeItem('banca360_state');
+        } catch (e) { /* ignorar si no se puede acceder */ }
+        try { sessionStorage.clear(); } catch (e) { }
+
+        // También limpia la variable en memoria por si queda referenciada
+        try { AppState.user = null; } catch (e) { }
+
+        // Redirige a la pantalla de sesión finalizada
         window.location.href = 'sessionEnded.html';
       }
     });
