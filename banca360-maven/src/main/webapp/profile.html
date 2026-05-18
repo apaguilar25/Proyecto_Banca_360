@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil · Banca 360</title>
   <link rel="icon" type="image/png" href="assets/bank.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/data.js"></script>
   <script>requireAuth();</script>
 </head>
+
 <body data-page="profile">
   <div class="app-shell">
     <header class="header">
       <div class="header-left">
-        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
-        <a class="brand" href="dashboard.html"><div class="logo-dot"><i class="ph ph-bank"></i></div>Banca 360</a>
+        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+          <i class="ph ph-list"></i>
+        </button>
+        <a class="brand" href="dashboard.html">
+          <div class="logo-dot">
+            <i class="ph ph-bank"></i>
+          </div>
+          Banca 360
+        </a>
       </div>
       <div class="header-actions">
-        <button class="icon-btn" id="toggleTheme"><i class="ph ph-moon"></i></button>
-        <a class="icon-btn" href="profile.html"><i class="ph ph-user-circle"></i></a>
+        <button class="icon-btn" id="toggleTheme">
+          <i class="ph ph-moon"></i>
+        </button>
+        <a class="icon-btn" href="profile.html">
+          <i class="ph ph-user-circle"></i>
+        </a>
       </div>
     </header>
 
@@ -37,14 +52,19 @@
       </nav>
 
       <main class="main-content">
-        <a class="back-link" href="dashboard.html"><i class="ph ph-arrow-left"></i> Volver al dashboard</a>
+        <a class="back-link" href="dashboard.html">
+          <i class="ph ph-arrow-left"></i> 
+          Volver al dashboard
+        </a>
 
         <header>
           <h1 class="page-title">Perfil y configuración</h1>
-          <p class="text-muted">Revisa tu información personal y administra tu seguridad.</p>
+          <p class="text-muted">
+            Revisa tu información personal y administra tu seguridad.
+          </p>
         </header>
 
-        <section class="card" style="max-width: 640px;" aria-labelledby="idTitle">
+        <section class="card" id="profileCard" aria-labelledby="idTitle">
           <div class="profile-header">
             <div class="avatar" id="avatarInitial">U</div>
             <div>
@@ -52,6 +72,7 @@
               <p id="profileEmail">—</p>
             </div>
           </div>
+
           <div class="settings-list">
             <div class="settings-row">
               <div class="left"><i class="ph ph-identification-card"></i>Cédula</div>
@@ -64,16 +85,16 @@
           </div>
         </section>
 
-        <section class="card" style="max-width: 640px;" aria-labelledby="settingsTitle">
+        <section class="card" id="profileCard" aria-labelledby="settingsTitle">
           <h2 class="section-title" id="settingsTitle">Ajustes</h2>
           <div class="settings-list">
-            <button class="settings-row" id="openChangePass" style="border:none; width:100%; cursor:pointer;">
+            <button class="settings-row" id="openChangePass">
               <div class="left"><i class="ph ph-lock-key"></i>Cambiar contraseña</div>
               <div class="right"><i class="ph ph-caret-right"></i></div>
             </button>
           </div>
 
-          <div id="changePassBox" hidden style="margin-top:16px;">
+          <div id="changePassBox" hidden>
             <form id="changePassForm" novalidate>
               <div class="form-group">
                 <label class="form-label" for="cpCurrent">Contraseña actual</label>
@@ -97,13 +118,13 @@
                 </div>
               </div>
               <p id="cpMsg" class="form-error" hidden></p>
-              <button type="submit" class="btn-primary">Actualizar contraseña</button>
+              <button type="submit" class="btn-primary" > Actualizar contraseña</button>
             </form>
           </div>
         </section>
 
-        <section style="max-width: 640px;">
-          <button class="btn-destructive" id="logoutBtn" style="width:100%;">
+        <section id="profileCard">
+          <button class="btn-destructive" id="logoutBtn" >
             <i class="ph ph-sign-out"></i> Cerrar sesión
           </button>
         </section>

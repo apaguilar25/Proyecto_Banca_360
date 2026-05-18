@@ -46,39 +46,16 @@
 
     <!-- Contenedor con barra lateral y contenido principal -->
     <div class="app-body">
-      <div class="sidebar-backdrop" id="sidebarBackdrop"></div> 
       <!-- Menú con referencia a otras secciones. Inicialmente oculto. -->
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <!-- data-nav se usa para marcar el item activo, detectado por shell.js -->
       <nav class="sidebar" aria-label="Navegación principal">
-        <!-- data-nav se usa para marcar el item activo, detectado por shell.js -->
-        <a class="nav-item" data-nav="dashboard"      href="dashboard.html">
-          <i class="ph ph-squares-four"></i>
-          <span class="label">Dashboard</span>
-        </a>
-
-        <a class="nav-item" data-nav="transfer"       href="transfer.html">
-          <i class="ph ph-paper-plane-tilt"></i>
-          <span class="label">Transferencias</span>
-        </a>
-
-        <a class="nav-item" data-nav="mobilePayment"  href="mobilePayment.html">
-          <i class="ph ph-device-mobile"></i>
-          <span class="label">Pago Móvil</span>
-        </a>
-
-        <a class="nav-item" data-nav="deposit"        href="deposit.html">
-          <i class="ph ph-wallet"></i>
-          <span class="label">Depósitos</span>
-        </a>
-
-        <a class="nav-item" data-nav="history"        href="history.html">
-          <i class="ph ph-clock-counter-clockwise"></i>
-          <span class="label">Historial</span>
-        </a>
-
-        <a class="nav-item" data-nav="profile"        href="profile.html">
-          <i class="ph ph-gear"></i>
-          <span class="label">Configuración</span>
-        </a>
+        <a class="nav-item" data-nav="dashboard"     href="dashboard.html"><i class="ph ph-squares-four"></i><span class="label">Dashboard</span></a>
+        <a class="nav-item" data-nav="transfer"      href="transfer.html"><i class="ph ph-paper-plane-tilt"></i><span class="label">Transferencias</span></a>
+        <a class="nav-item" data-nav="mobilePayment" href="mobilePayment.html"><i class="ph ph-device-mobile"></i><span class="label">Pago Móvil</span></a>
+        <a class="nav-item" data-nav="deposit"       href="deposit.html"><i class="ph ph-wallet"></i><span class="label">Depósitos</span></a>
+        <a class="nav-item" data-nav="history"       href="history.html"><i class="ph ph-clock-counter-clockwise"></i><span class="label">Historial</span></a>
+        <a class="nav-item" data-nav="profile"       href="profile.html"><i class="ph ph-gear"></i><span class="label">Configuración</span></a>
       </nav>
 
       <!-- Contenido principal de la página, cambia según la sección seleccionada -->

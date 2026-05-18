@@ -49,19 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
           amount: monto, to: tel, concept: `Pago Móvil ${bancoTxt}`
         });
         showModal('Pago Móvil exitoso', `
-          <p style="color:var(--success); font-weight:600;">¡Pago realizado con éxito!</p>
+          <p class="transfer-success">¡Pago realizado con éxito!</p>
           <div class="modal-row"><span class="key">Banco</span><span class="val">${bancoTxt}</span></div>
           <div class="modal-row"><span class="key">Teléfono</span><span class="val">${tel}</span></div>
           <div class="modal-row"><span class="key">Cédula</span><span class="val">${ced}</span></div>
-          <div class="modal-row"><span class="key">Monto</span><span class="val" style="color:var(--error)">-${formatMoney(monto)}</span></div>
+          <div class="modal-row"><span class="key">Monto</span><span class="val" id="val-negative">-${formatMoney(monto)}</span></div>
           <div class="modal-row"><span class="key">Saldo restante</span><span class="val">${formatMoney(AppState.balance)}</span></div>
         `, { footer: `<a class="btn-primary" href="dashboard.html">Ir al dashboard</a>` });
       }
     });
 
     function show(msg) {
-      err.hidden = false; err.textContent = msg;
-      err.style.animation = 'none'; void err.offsetWidth; err.style.animation = '';
+      err.hidden = false; 
+      err.textContent = msg;
+      err.style.animation = 'none'; 
+      void err.offsetWidth; 
+      err.style.animation = '';
     }
   });
 });

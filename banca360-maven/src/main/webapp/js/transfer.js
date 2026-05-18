@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const concepto = document.getElementById('tConcepto').value.trim() || 'Transferencia';
 
     if (!destino || !banco)      return show('Completa los campos requeridos.');
-    if (!/^\d{6,20}$/.test(destino)) return show('La cuenta destino debe ser numérica (mínimo 6 dígitos).');
+    if (!/^\d{6,20}$/.test(destino)) return show('La cuenta destino debe ser numérica (entre 6 y 20 dígitos).');
     if (!monto || monto <= 0)    return show('Monto inválido.');
     if (monto > AppState.balance) return show('Saldo insuficiente.');
 
-    showConfirm({
+    showConfirm({ 
       title: 'Confirmar transferencia',
       bodyHTML: `
         <div class="modal-row"><span class="key">Destino</span><span class="val">${destino}</span></div>
@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
           amount: monto, to: destino, concept: concepto
         });
         showModal('Transferencia exitosa', `
-          <p style="color:var(--success); font-weight:600;">¡Tu transferencia se realizó con éxito!</p>
+          <p class="transfer-success">¡Tu transferencia se realizó con éxito!</p>
           <div class="modal-row"><span class="key">Destino</span><span class="val">${destino}</span></div>
           <div class="modal-row"><span class="key">Banco</span><span class="val">${bancoTxt}</span></div>
           <div class="modal-row"><span class="key">Concepto</span><span class="val">${concepto}</span></div>
-          <div class="modal-row"><span class="key">Monto</span><span class="val" style="color:var(--error)">-${formatMoney(monto)}</span></div>
+          <div class="modal-row"><span class="key">Monto</span><span class="val" id="val-negative">-${formatMoney(monto)}</span></div>
           <div class="modal-row"><span class="key">Saldo restante</span><span class="val">${formatMoney(AppState.balance)}</span></div>
         `, {
           footer: `<a class="btn-primary" href="dashboard.html">Ir al dashboard</a>`
@@ -58,8 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function show(msg) {
-      err.hidden = false; err.textContent = msg;
-      err.style.animation = 'none'; void err.offsetWidth; err.style.animation = '';
+      err.hidden = false; 
+      err.textContent = msg;
+      err.style.animation = 'none'; 
+      void err.offsetWidth; 
+      err.style.animation = '';
     }
   });
 });

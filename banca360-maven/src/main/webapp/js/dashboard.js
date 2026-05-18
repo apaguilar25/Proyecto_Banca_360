@@ -85,7 +85,7 @@ function openTxnDetail(id) {
     <div class="modal-row"><span class="key">Concepto</span><span class="val">${t.concept || '—'}</span></div>
     <div class="modal-row"><span class="key">${isIn ? 'Emisor' : 'Receptor'}</span><span class="val">${t.from || t.to || '—'}</span></div>
     <div class="modal-row"><span class="key">Monto</span>
-      <span class="val modal-amount-status ${isIn? 'status-positive':'status-negative'}">
+      <span class="val" ${isIn? 'id="val-positive"' : 'id="val-negative"'}>
         ${isIn ?'+':'-'}${formatMoney(t.amount)}
       </span>
     </div>

@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const n1  = document.getElementById('cpNew').value;
     const n2  = document.getElementById('cpNew2').value;
     const msg = document.getElementById('cpMsg');
-    msg.hidden = false; msg.className = 'form-error';
+    msg.hidden = false; 
+    msg.className = 'form-error';
     msg.style.animation = 'none'; void msg.offsetWidth; msg.style.animation = '';
 
     if (AppState.user && cur !== AppState.user.password)

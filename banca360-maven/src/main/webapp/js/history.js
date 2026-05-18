@@ -2,8 +2,9 @@
    history.js — Filtros direccionales + filtro de tipo (dropdown)
    ============================================================ */
 
+   //Guión bajo para variables privadas de este módulo (no globales)
 let _dirFilter  = 'all';     // all | received | sent
-let _typeFilter = 'all';     // all | transfer | mobilePayment | both (=transfer+mobilePayment)
+let _typeFilter = 'all';     // all | transfer | mobilePayment | deposit 
 
 document.addEventListener('DOMContentLoaded', () => {
   renderHistory();
@@ -38,13 +39,13 @@ function renderHistory() {
       _typeFilter === 'all' ||
       (_typeFilter === 'transfer'      && t.category === 'transfer') ||
       (_typeFilter === 'mobilePayment' && t.category === 'mobilePayment') ||
-      (_typeFilter === 'both'          && (t.category === 'transfer' || t.category === 'mobilePayment'));
+      (_typeFilter === 'deposit'       && t.category === 'deposit');
 
     return dirOk && typeOk;
   });
 
   if (!items.length) {
-    list.innerHTML = '<p style="padding:24px; text-align:center; color:var(--text-secondary);">No hay movimientos para mostrar.</p>';
+    list.innerHTML = '<p class="empty-state-msg">No hay movimientos para mostrar.</p>';
     return;
   }
   list.innerHTML = items.map(renderTxnRow).join('');
@@ -56,6 +57,7 @@ function renderHistory() {
 
 function renderTxnRow(t) {
   const isIn = t.type === 'received';
+  // Genera un bloque de HTML usando variables del objeto transacción
   return `
     <button class="ios-list-item" data-txn="${t.id}">
       <span class="icon-circle ${isIn ? 'in' : 'out'}">
@@ -80,9 +82,11 @@ function categoryLabel(c) {
 }
 
 function openTxnDetail(id) {
-  const t = AppState.transactions.find(x => x.id === id);
+  const t = AppState.transactions.find(x => x.id === id); // Busca la transacción según id
   if (!t) return;
-  const isIn = t.type === 'received';
+  const isIn = t.type === 'received'; // True si fue ingreso
+  // Manejo de ventanas emergente de modal.js
+  // Pasa el título y el contenido
   showModal('Detalle de transacción', `
     <div class="modal-row"><span class="key">ID</span><span class="val">${t.id}</span></div>
     <div class="modal-row"><span class="key">Tipo</span><span class="val">${categoryLabel(t.category)}</span></div>
@@ -90,8 +94,8 @@ function openTxnDetail(id) {
     <div class="modal-row"><span class="key">Concepto</span><span class="val">${t.concept || '—'}</span></div>
     <div class="modal-row"><span class="key">${isIn ? 'Emisor' : 'Receptor'}</span><span class="val">${t.from || t.to || '—'}</span></div>
     <div class="modal-row"><span class="key">Monto</span>
-      <span class="val" style="color:${isIn?'var(--success)':'var(--error)'}">
-        ${isIn?'+':'-'}${formatMoney(t.amount)}
+      <span class="val modal-amount-status ${isIn? 'status-positive':'status-negative'}">
+        ${isIn ?'+':'-'}${formatMoney(t.amount)}
       </span>
     </div>
   `);
