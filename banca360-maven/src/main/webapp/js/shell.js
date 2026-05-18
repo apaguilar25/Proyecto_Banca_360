@@ -17,6 +17,8 @@
     const hamburger = document.getElementById('hamburgerBtn');
     const sidebar   = document.querySelector('.sidebar');
     const backdrop  = document.getElementById('sidebarBackdrop');
+
+    // Añade o quita la clase 'open' para mostrar u ocultar el sidebar y el backdrop
     const closeSidebar = () => {
       sidebar?.classList.remove('open');
       backdrop?.classList.remove('open');
@@ -25,6 +27,7 @@
       sidebar?.classList.add('open');
       backdrop?.classList.add('open');
     };
+
     hamburger?.addEventListener('click', () => {
       if (sidebar?.classList.contains('open')) closeSidebar();
       else openSidebar();
@@ -37,6 +40,7 @@
     // Botón de tema
     wireThemeButton(document.getElementById('toggleTheme'));
 
+    // Esto escribe el nombre del usuario en cualquier parte que haya un elemento con el atributo data-username
     // Nombre del usuario
     if (AppState.user) {
       document.querySelectorAll('[data-username]').forEach(el => {

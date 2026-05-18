@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8" />
+  <!-- Para asegurar el responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crear Cuenta · Banca 360</title>
   <link rel="icon" type="image/png" href="assets/bank.png">
   <meta name="description" content="Crea tu cuenta de Banca 360 en pocos pasos." />
+ 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/data.js"></script>
   <script>applyTheme();</script>
+
 </head>
+
 <body data-page="register">
   <main class="auth-screen">
     <div class="auth-tools">
-      <button class="icon-btn" id="toggleTheme" title="Modo claro / oscuro"><i class="ph ph-moon"></i></button>
+      <button class="icon-btn" id="toggleTheme" title="Modo claro / oscuro">
+        <i class="ph ph-moon"></i>
+      </button>
     </div>
 
-    <section class="auth-card" aria-labelledby="regTitle">
+    <section class="auth-card" aria-labelledby="regTitle"> 
       <header class="brand-hero">
-        <div class="logo-dot"><i class="ph ph-bank"></i></div>
+        <div class="logo-dot">
+          <i class="ph ph-bank"></i>
+        </div>
         <strong>Banca 360</strong>
       </header>
 
       <h1 id="regTitle">Crea tu cuenta</h1>
-      <p class="subtitle">Completa tus datos para registrarte de forma segura en Banca 360.</p>
+      <p class="subtitle">
+        Completa tus datos para registrarte de forma segura en Banca 360.
+      </p>
 
       <form id="registerForm" novalidate>
         <div class="form-group">
@@ -55,7 +68,7 @@
           <label class="form-label" for="regPass">Contraseña (6 o más dígitos numéricos)</label>
           <div class="password-wrap">
             <input class="form-input" type="password" id="regPass"
-                   inputmode="numeric" placeholder="••••••" autocomplete="new-password" required />
+              inputmode="numeric" placeholder="••••••" autocomplete="new-password" required />
             <button type="button" class="password-toggle" id="regPassToggle" aria-label="Mostrar contraseña">
               <i class="ph ph-eye"></i>
             </button>
@@ -66,7 +79,7 @@
           <label class="form-label" for="regPass2">Confirmar contraseña</label>
           <div class="password-wrap">
             <input class="form-input" type="password" id="regPass2"
-                   inputmode="numeric" placeholder="••••••" autocomplete="new-password" required />
+              inputmode="numeric" placeholder="••••••" autocomplete="new-password" required />
             <button type="button" class="password-toggle" id="regPass2Toggle" aria-label="Mostrar contraseña">
               <i class="ph ph-eye"></i>
             </button>
@@ -75,7 +88,7 @@
 
         <p id="regError" class="form-error" hidden></p>
 
-        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
+        <button type="submit" class="btn-primary" id="registerBtn">
           Registrarme
         </button>
       </form>

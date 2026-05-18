@@ -1,51 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard · Banca 360</title>
   <link rel="icon" type="image/png" href="assets/bank.png">
   <meta name="description" content="Resumen de tu cuenta, saldo y movimientos recientes." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/data.js"></script>
   <script>requireAuth();</script>
 </head>
+
 <body data-page="dashboard">
   <div class="app-shell">
+    <!-- Se mantiene fijo al hacer scroll, contiene el header y la navegación lateral. -->
+    <!-- Está fijo porque utiliza position: fixed -->
     <header class="header">
       <div class="header-left">
-        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
+        <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+          <i class="ph ph-list"></i>
+        </button>
         <a class="brand" href="dashboard.html" aria-label="Ir al dashboard">
-          <div class="logo-dot"><i class="ph ph-bank"></i></div>
+          <div class="logo-dot">
+            <i class="ph ph-bank"></i>
+          </div>
           Banca 360
         </a>
       </div>
+
       <div class="header-actions">
-        <button class="icon-btn" id="toggleTheme" title="Cambiar tema"><i class="ph ph-moon"></i></button>
-        <a class="icon-btn" href="profile.html" title="Perfil"><i class="ph ph-user-circle"></i></a>
+        <button class="icon-btn" id="toggleTheme" title="Cambiar tema">
+          <i class="ph ph-moon"></i>
+        </button>
+        <a class="icon-btn" href="profile.html" title="Perfil">
+          <i class="ph ph-user-circle"></i>
+        </a>
       </div>
     </header>
 
+    <!-- Contenedor con barra lateral y contenido principal -->
     <div class="app-body">
-      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div> 
+      <!-- Menú con referencia a otras secciones. Inicialmente oculto. -->
       <nav class="sidebar" aria-label="Navegación principal">
-        <a class="nav-item" data-nav="dashboard"     href="dashboard.html"><i class="ph ph-squares-four"></i><span class="label">Dashboard</span></a>
-        <a class="nav-item" data-nav="transfer"      href="transfer.html"><i class="ph ph-paper-plane-tilt"></i><span class="label">Transferencias</span></a>
-        <a class="nav-item" data-nav="mobilePayment" href="mobilePayment.html"><i class="ph ph-device-mobile"></i><span class="label">Pago Móvil</span></a>
-        <a class="nav-item" data-nav="deposit"       href="deposit.html"><i class="ph ph-wallet"></i><span class="label">Depósitos</span></a>
-        <a class="nav-item" data-nav="history"       href="history.html"><i class="ph ph-clock-counter-clockwise"></i><span class="label">Historial</span></a>
-        <a class="nav-item" data-nav="profile"       href="profile.html"><i class="ph ph-gear"></i><span class="label">Configuración</span></a>
+        <!-- data-nav se usa para marcar el item activo, detectado por shell.js -->
+        <a class="nav-item" data-nav="dashboard"      href="dashboard.html">
+          <i class="ph ph-squares-four"></i>
+          <span class="label">Dashboard</span>
+        </a>
+
+        <a class="nav-item" data-nav="transfer"       href="transfer.html">
+          <i class="ph ph-paper-plane-tilt"></i>
+          <span class="label">Transferencias</span>
+        </a>
+
+        <a class="nav-item" data-nav="mobilePayment"  href="mobilePayment.html">
+          <i class="ph ph-device-mobile"></i>
+          <span class="label">Pago Móvil</span>
+        </a>
+
+        <a class="nav-item" data-nav="deposit"        href="deposit.html">
+          <i class="ph ph-wallet"></i>
+          <span class="label">Depósitos</span>
+        </a>
+
+        <a class="nav-item" data-nav="history"        href="history.html">
+          <i class="ph ph-clock-counter-clockwise"></i>
+          <span class="label">Historial</span>
+        </a>
+
+        <a class="nav-item" data-nav="profile"        href="profile.html">
+          <i class="ph ph-gear"></i>
+          <span class="label">Configuración</span>
+        </a>
       </nav>
 
+      <!-- Contenido principal de la página, cambia según la sección seleccionada -->
       <main class="main-content">
         <header>
           <h1 class="page-title">Hola, <span data-username>Usuario</span></h1>
-          <p class="text-muted">Este es el resumen de tu cuenta hoy.</p>
+          <p class="text-muted">
+            Este es el resumen de tu cuenta hoy.
+          </p>
         </header>
 
+        <!-- Tarjeta con el saldo actual -->
         <section class="balance-card" aria-labelledby="balanceLabel">
           <span class="label" id="balanceLabel">Cuenta Ahorros · 0102-0123</span>
           <div class="amount-row">
@@ -57,6 +102,7 @@
           <span class="acct">Saldo disponible</span>
         </section>
 
+        <!-- Transacciones recientes -->
         <section class="ios-list" aria-labelledby="latestTitle">
           <h2 class="ios-list-header" id="latestTitle">
             <span>Últimas Transacciones</span>
@@ -65,25 +111,37 @@
             </button>
           </h2>
           <div id="latestList">
-            <p style="padding:20px; color:var(--text-secondary);">Cargando…</p>
+            <p class="loading-state">Cargando…</p>
           </div>
         </section>
 
+        <!-- Opciones rápidas para las operaciones más comunes -->
         <section aria-label="Atajos rápidos">
           <h2 class="section-title">Acciones rápidas</h2>
-          <p class="text-muted" style="margin-bottom:10px;">Accede a las operaciones más utilizadas con un solo clic.</p>
+          <p class="text-muted" id="shortcut-subtitle">
+            Accede a las operaciones más utilizadas con un solo clic.
+          </p>
           <div class="flex-row">
-            <a class="btn-primary"   href="transfer.html"><i class="ph ph-paper-plane-tilt"></i> Nueva Transferencia</a>
-            <a class="btn-secondary" href="mobilePayment.html"><i class="ph ph-device-mobile"></i> Pago Móvil</a>
-            <a class="btn-secondary" href="deposit.html"><i class="ph ph-wallet"></i> Depositar</a>
+            <a class="btn-primary"   href="transfer.html">
+              <i class="ph ph-paper-plane-tilt"></i> Nueva Transferencia
+            </a>
+
+            <a class="btn-secondary" href="mobilePayment.html">
+              <i class="ph ph-device-mobile"></i> Pago Móvil
+            </a>
+
+            <a class="btn-secondary" href="deposit.html">
+              <i class="ph ph-wallet"></i> Depositar
+            </a>
+
           </div>
         </section>
       </main>
     </div>
   </div>
 
-  <script src="js/shell.js"></script>
-  <script src="js/modal.js"></script>
+  <script src="js/shell.js"></script> <!--Se encarga de la navegación según el item marcado en el menú, el menú lateral se muestra u oculta y se gestiona el tema.   -->
+  <script src="js/modal.js"></script> <!--Permite mostrar modales para confirmar acciones o mostrar información adicional sin salir de la página-->
   <script src="js/dashboard.js"></script>
 </body>
 </html>
